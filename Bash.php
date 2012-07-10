@@ -1,8 +1,25 @@
 <?php
+
+/**
+ * Bash.php
+ *
+ * This file creates a Bash shell wrapper from the Shell class.
+ *
+ * @author John P. Bloch <john@avendimedia.com>
+ * @version 1.0
+ * @license http://www.gnu.org/copyleft/gpl.html GPLv3 or later
+ */
 namespace Shell;
 
-class Bash extends \Shell\Shell
+class Bash extends Shell
 {
+    /**
+     * Define our shell invocation command. Use the login shell invocation so
+     * the current user's environment is loaded
+     *
+     * @link http://linux.about.com/library/cmd/blcmdl1_sh.htm#lbAH Bash Invocation
+     * @since 1.0
+     */
 
     const SHELL = '"bash --login"';
 

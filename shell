@@ -1,0 +1,30 @@
+#!/usr/bin/php -n
+<?php
+if ($argc < 3) {
+    exit;
+}
+$lastArgument = end($argv);
+if ($lastArgument != 'noRecursionPlease') {
+    $shell = $argv[1];
+    $actualCommand = implode(' ', array_slice($argv, 2));
+    $descriptors = array(
+        0 => array('pipe', 'r'),
+        1 => array('pipe', 'w'),
+        2 => array('pipe', 'w'),
+    );
+    $process = proc_open($shell, $descriptors, $pipes);
+    fwrite(
+        $pipes[0],
+        escapeshellcmd(__FILE__ . " $actualCommand noRecursionPlease") . "\n"
+    );
+    fclose($pipes[0]);
+    echo stream_get_contents($pipes[1]);
+    fclose($pipes[1]);
+    fclose($pipes[2]);
+    proc_close($process);
+    exit;
+}
+$actualCommand = array_slice($argv, 1);
+array_pop($actualCommand);
+$actualCommand = implode(' ', $actualCommand);
+echo `$actualCommand`;

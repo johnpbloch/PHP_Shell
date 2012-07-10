@@ -23,7 +23,7 @@ Use
 
 Use the static `exec()` method of any class that extends `\PhpShell\Shell`. The first argument (which is required) is the command to execute. Any additional arguments will be parsed into the command using `vsprintf()` (`vsprintf()` will only be run if there are more than one argument).
 
-```<?php
+```php
 use PhpShell\Bash;
 // Using use:
 echo Bash::exec('ls -la %s', escapeshellarg('.'));

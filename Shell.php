@@ -10,7 +10,7 @@
  * @version 1.0
  * @license http://www.gnu.org/copyleft/gpl.html GPLv3 or later
  */
-namespace PhpShell;
+namespace Shell;
 
 abstract class Shell
 {
@@ -55,12 +55,12 @@ abstract class Shell
      * @param string $args Optional arguments to append to the command
      * @return string The error or output information from the command (if any)
      */
-    final public static function exec($command, $args = null)
+    final public static function exec($command)
     {
         $shell = static::SHELL;
         $binary = __DIR__ . '/shell';
-        if ($args) {
-            $command = "$command $args";
+        if (func_num_args() > 1) {
+            $command = vsprintf($command, array_slice(func_get_args(), 1));
         }
         $command = trim($command);
         // Don't bother running if the command wouldn't run anyway.

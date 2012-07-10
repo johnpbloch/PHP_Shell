@@ -4,20 +4,26 @@ if ($argc < 3) {
     exit;
 }
 $lastArgument = end($argv);
+
+// We only want to load one new process
 if ($lastArgument != 'noRecursionPlease') {
     $shell = $argv[1];
     $actualCommand = implode(' ', array_slice($argv, 2));
     $descriptors = array(
-        0 => array('pipe', 'r'),
-        1 => array('pipe', 'w'),
-        2 => array('pipe', 'w'),
+        0 => array('pipe', 'r'), // STDIN
+        1 => array('pipe', 'w'), // STDOUT
+        2 => array('pipe', 'w'), // STDERR
     );
+    // Open our shell...
     $process = proc_open($shell, $descriptors, $pipes);
+    // Write the command to our shell...
     fwrite(
         $pipes[0],
         escapeshellcmd(__FILE__ . " $actualCommand noRecursionPlease") . "\n"
     );
     fclose($pipes[0]);
+    // Get any errors or output
+    echo stream_get_contents($pipes[2]);
     echo stream_get_contents($pipes[1]);
     fclose($pipes[1]);
     fclose($pipes[2]);

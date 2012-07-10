@@ -10,7 +10,7 @@
  * @version 1.0
  * @license http://www.gnu.org/copyleft/gpl.html GPLv3 or later
  */
-namespace Shell;
+namespace PhpShell;
 
 abstract class Shell
 {

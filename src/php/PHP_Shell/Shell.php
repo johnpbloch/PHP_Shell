@@ -7,10 +7,10 @@
  * will extend.
  *
  * @author John P. Bloch <john@avendimedia.com>
- * @version 1.0
+ * @version @@PACKAGE_VERSION@@
  * @license http://www.gnu.org/copyleft/gpl.html GPLv3 or later
  */
-namespace PhpShell;
+namespace PHP_Shell;
 
 abstract class Shell
 {
@@ -58,7 +58,7 @@ abstract class Shell
     final public static function exec($command)
     {
         $shell = static::SHELL;
-        $binary = __DIR__ . '/shell';
+        $binary = '@@BIN_DIR@@/php-shell';
         if (func_num_args() > 1) {
             $command = vsprintf($command, array_slice(func_get_args(), 1));
         }

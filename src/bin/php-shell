@@ -1,4 +1,4 @@
-#!/usr/bin/php -n
+#!/usr/bin/env php -n
 <?php
 if ($argc < 3) {
     exit;

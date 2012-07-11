@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+  <name>${project.name}</name>
+  <channel>${project.channel}</channel>
+  <summary>A PHP wrapper for executing shell commands in an authentic shell environment</summary>
+  <description>
+    See the README.md file for more information.
+  </description>
+  <lead>
+    <name>John P. Bloch</name>
+    <user>John P. Bloch</user>
+    <email>me@johnpbloch.com</email>
+    <active>yes</active>
+  </lead>
+  <date>${build.date}</date>
+  <time>${build.time}</time>
+  <version>
+    <release>${project.version}</release>
+    <api>${project.majorVersion}.${project.minorVersion}</api>
+  </version>
+  <stability>
+    <release>${project.stability}</release>
+    <api>stable</api>
+  </stability>
+  <license>GPL version 3 or later</license>
+  <notes>
+    No notes.
+  </notes>
+  <contents>
+    <dir baseinstalldir="/" name="/">
+      <file baseinstalldir="/" name="/PHP_Shell/Shell.php" role="php">
+        <tasks:replace from="@@BIN_DIR@@" to="bin_dir" type="pear-config" />
+      </file>
+${contents}
+    </dir>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.3.0</min>
+      </php>
+      <pearinstaller>
+        <min>1.9.4</min>
+      </pearinstaller>
+    </required>
+  </dependencies>
+  <phprelease />
+  <changelog>
+    <release>
+      <version>
+        <release>1.0.0</release>
+        <api>1.0</api>
+      </version>
+      <stability>
+        <release>stable</release>
+        <api>stable</api>
+      </stability>
+      <date>2012-07-11</date>
+      <license>GPL version 3 or later</license>
+      <notes>
+      </notes>
+    </release>
+  </changelog>
+</package>
+<!-- vim: set tabstop=2 shiftwidth=2 expandtab: -->

@@ -31,10 +31,13 @@
   </notes>
   <contents>
     <dir baseinstalldir="/" name="/">
+${contents}
       <file baseinstalldir="/" name="/PHP_Shell/Shell.php" role="php">
+        <tasks:replace from="@@PACKAGE_VERSION@@" to="version" type="package-info" />
+        <tasks:replace from="@@PHP_DIR@@" to="php_dir" type="pear-config" />
+        <tasks:replace from="@@DATA_DIR@@" to="data_dir" type="pear-config" />
         <tasks:replace from="@@BIN_DIR@@" to="bin_dir" type="pear-config" />
       </file>
-${contents}
     </dir>
   </contents>
   <dependencies>

@@ -1,0 +1,20 @@
+{
+    "name": "johnpbloch/php_shell",
+    "description": "Run commands in a user environment from PHP",
+    "license": "GPLv3 or later",
+    "authors": [
+        {
+            "name": "John P. Bloch",
+            "email": "me@johnpbloch.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+	"autoload": {
+		"psr-0": {
+			"PHP_Shell\\": "src/"
+		}
+	}
+}
